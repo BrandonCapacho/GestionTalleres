@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" spacing="15.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.BuscadorFacturasController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Historial y Búsqueda de Facturas" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+
+    <HBox spacing="10.0" alignment="CENTER">
+        <TextField fx:id="txtBusqueda" promptText="Placa o Cédula..." prefWidth="250.0" />
+        <Button text="Buscar por Placa" onAction="#buscarPorPlacaAction" style="-fx-background-color: #34495e; -fx-text-fill: white;" />
+        <Button text="Buscar por Cédula" onAction="#buscarPorCedulaAction" style="-fx-background-color: #8e44ad; -fx-text-fill: white;" />
+    </HBox>
+
+    <TableView fx:id="tablaFacturas" prefHeight="300.0" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID Factura" prefWidth="100.0" />
+            <TableColumn fx:id="colPlaca" text="Placa Vehículo" prefWidth="150.0" />
+            <TableColumn fx:id="colFecha" text="Fecha" prefWidth="200.0" />
+            <TableColumn fx:id="colTotal" text="Total ($)" prefWidth="150.0" />
+        </columns>
+    </TableView>
+
+    <Button text="Generar PDF (iText) de Seleccionada" onAction="#exportarPdfAction" 
+            style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;">
+        <VBox.margin>
+            <Insets top="10.0" />
+        </VBox.margin>
+    </Button>
+</VBox>

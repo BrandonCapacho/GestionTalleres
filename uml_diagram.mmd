@@ -1,0 +1,111 @@
+classDiagram
+    direction TB
+
+    %% MODELOS
+    class Vehiculo {
+        <<abstract>>
+        -String placa
+        -String marca
+        -String modelo
+        -int anio
+        -String cedulaCliente
+        +getTipo()* String
+        +placa() String
+        +marca() String
+        +modelo() String
+        +anio() int
+        +cedulaCliente() String
+    }
+    class Moto {
+        -int cilindraje
+        +getTipo() String
+        +getCilindraje() int
+    }
+    class Carro {
+        -int numPuertas
+        +getTipo() String
+        +getNumPuertas() int
+    }
+    class Diesel {
+        -double capacidadCargaToneladas
+        +getTipo() String
+        +getCapacidadCargaToneladas() double
+    }
+    class Cliente {
+        <<record>>
+        +String cedula
+        +String nombre
+        +String telefono
+    }
+    class Factura {
+        <<record>>
+        +int id
+        +String placaVehiculo
+        +double manoObra
+        +double total
+    }
+    class Repuesto {
+        <<record>>
+        +int id
+        +String nombre
+        +double precio
+    }
+    class Configuracion {
+        <<record>>
+        +int id
+        +String nombreTaller
+        +String claveAcceso
+    }
+
+    Vehiculo <|-- Moto
+    Vehiculo <|-- Carro
+    Vehiculo <|-- Diesel
+    Vehiculo --> Cliente : pertenece a
+    Factura "1" o-- "*" Repuesto
+
+    %% CONTROLADORES
+    class MainController {
+        +initialize() void
+        +cargarConfiguracion() void
+        +navInicio() void
+        +navClientes() void
+        +navVehiculos() void
+        +navNuevaFactura() void
+        +navConfiguracion() void
+    }
+    class VehiculoController {
+        +initialize() void
+        +onTipoSeleccionado() void
+        +guardarVehiculoAction() void
+    }
+    class ClienteController {
+        +initialize() void
+        +guardarClienteAction() void
+    }
+    class FacturacionController {
+        +initialize() void
+        +agregarRepuestoAction() void
+        +eliminarRepuestoAction() void
+        +generarFacturaAction() void
+    }
+    class ConfigController {
+        +initialize() void
+        +guardarConfiguracionAction() void
+    }
+
+    MainController --> VehiculoController
+    MainController --> ClienteController
+    MainController --> FacturacionController
+    MainController --> ConfigController
+
+    VehiculoController --> Vehiculo
+    ClienteController --> Cliente
+    FacturacionController --> Factura
+    ConfigController --> Configuracion
+
+    %% APP
+    class App {
+        +start(Stage) void
+        +main(String[])$ void
+    }
+    App --> MainController

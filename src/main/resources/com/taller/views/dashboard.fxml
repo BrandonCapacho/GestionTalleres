@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="30.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.DashboardController">
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+    </padding>
+
+    <Label text="Seleccione una Opción" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="32.0" />
+        </font>
+        <VBox.margin>
+            <Insets bottom="20.0" />
+        </VBox.margin>
+    </Label>
+
+    <GridPane alignment="CENTER" hgap="30.0" vgap="30.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="250.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="NEVER" minWidth="250.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints valignment="CENTER" vgrow="NEVER" minHeight="250.0" />
+            <RowConstraints valignment="CENTER" vgrow="NEVER" minHeight="250.0" />
+        </rowConstraints>
+
+        <!-- Botón Clientes -->
+        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navClientes" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-padding: 0;">
+            <graphic>
+                <ImageView fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 15, 0, 0, 5);">
+                    <image>
+                        <Image url="@../assets/btn_clientes.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <!-- Botón Vehículos -->
+        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navVehiculos" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-padding: 0;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <graphic>
+                <ImageView fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 15, 0, 0, 5);">
+                    <image>
+                        <Image url="@../assets/btn_vehiculos.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <!-- Botón Facturación -->
+        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navFacturacion" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-padding: 0;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <graphic>
+                <ImageView fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 15, 0, 0, 5);">
+                    <image>
+                        <Image url="@../assets/btn_facturacion.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <!-- Botón Buscar Facturas -->
+        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navBuscarFacturas" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-padding: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <graphic>
+                <ImageView fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 15, 0, 0, 5);">
+                    <image>
+                        <Image url="@../assets/btn_buscar.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </GridPane>
+</VBox>
