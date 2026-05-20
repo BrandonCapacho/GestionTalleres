@@ -67,7 +67,10 @@ public class ConfigController implements Initializable {
         }
 
         try {
-            Configuracion config = new Configuracion(1, nombre, logo, clave);
+            // Preserve the current theme when updating other settings
+            Configuracion existing = repository.obtenerConfiguracion();
+            String currentTheme = (existing != null && existing.tema() != null) ? existing.tema() : "dark";
+            Configuracion config = new Configuracion(1, nombre, logo, clave, currentTheme);
             repository.actualizarConfiguracion(config);
             if (mainController != null) {
                 mainController.cargarConfiguracion();

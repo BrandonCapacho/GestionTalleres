@@ -19,7 +19,7 @@ import java.sql.SQLException;
  */
 public class ConfigRepository {
     public Configuracion obtenerConfiguracion() throws SQLException {
-        String query = "SELECT id, nombre_taller, logo_path, clave_acceso FROM configuracion WHERE id = 1";
+        String query = "SELECT id, nombre_taller, logo_path, clave_acceso, tema FROM configuracion WHERE id = 1";
         try (Connection conn = DatabaseConnection.getInstance().getConnection();
              PreparedStatement pstmt = conn.prepareStatement(query);
              ResultSet rs = pstmt.executeQuery()) {
@@ -28,7 +28,8 @@ public class ConfigRepository {
                         rs.getInt("id"),
                         rs.getString("nombre_taller"),
                         rs.getString("logo_path"),
-                        rs.getString("clave_acceso")
+                        rs.getString("clave_acceso"),
+                        rs.getString("tema")
                 );
             }
         }
@@ -42,6 +43,16 @@ public class ConfigRepository {
             pstmt.setString(1, config.nombreTaller());
             pstmt.setString(2, config.logoPath());
             pstmt.setString(3, config.claveAcceso());
+            pstmt.executeUpdate();
+        }
+    }
+
+    /** Actualiza solo el tema (light/dark) en la tabla configuración */
+    public void actualizarTema(String tema) throws SQLException {
+        String query = "UPDATE configuracion SET tema = ? WHERE id = 1";
+        try (Connection conn = DatabaseConnection.getInstance().getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, tema);
             pstmt.executeUpdate();
         }
     }

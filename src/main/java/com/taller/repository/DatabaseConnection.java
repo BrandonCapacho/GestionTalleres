@@ -59,12 +59,13 @@ public class DatabaseConnection {
      * y aplicando migraciones de columnas si es necesario.
      */
     private void inicializarBaseDatos() {
-        String createConfig = "CREATE TABLE IF NOT EXISTS configuracion ("
-                + "id INT PRIMARY KEY,"
-                + "nombre_taller VARCHAR(100),"
-                + "logo_path VARCHAR(255),"
-                + "clave_acceso VARCHAR(255)"
-                + ");";
+        String createConfig = "CREATE TABLE IF NOT EXISTS configuracion (" +
+                "id INT PRIMARY KEY," +
+                "nombre_taller VARCHAR(100)," +
+                "logo_path VARCHAR(255)," +
+                "clave_acceso VARCHAR(255)," +
+                "tema VARCHAR(10) DEFAULT 'dark'" +
+                ");";
         String createClientes = "CREATE TABLE IF NOT EXISTS clientes ("
                 + "cedula VARCHAR(20) PRIMARY KEY,"
                 + "nombre VARCHAR(100) NOT NULL,"
@@ -99,7 +100,7 @@ public class DatabaseConnection {
             // Configurar default
             try (ResultSet rs = stmt.executeQuery("SELECT count(*) FROM configuracion")) {
                 if (rs.next() && rs.getInt(1) == 0) {
-                    stmt.execute("INSERT INTO configuracion (id, nombre_taller, logo_path, clave_acceso) VALUES (1, 'Mi Taller Mecánico', '', 'admin')");
+                    stmt.execute("INSERT INTO configuracion (id, nombre_taller, logo_path, clave_acceso, tema) VALUES (1, 'Mi Taller Mecánico', '', 'admin', 'dark')");
                 }
             }
 

@@ -11,12 +11,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="30.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.DashboardController">
+<VBox alignment="CENTER" spacing="30.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.DashboardController">
     <padding>
         <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
     </padding>
 
-    <Label text="Seleccione una Opción" textFill="WHITE">
+    <Label text="Seleccione una Opción" styleClass="title-label">
         <font>
             <Font name="System Bold" size="32.0" />
         </font>
@@ -36,7 +36,7 @@
         </rowConstraints>
 
         <!-- Botón Clientes -->
-        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navClientes" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-padding: 0;">
+        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navClientes" prefHeight="250.0" prefWidth="250.0" styleClass="nav-button">
             <graphic>
                 <ImageView fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 15, 0, 0, 5);">
                     <image>
@@ -47,7 +47,7 @@
         </Button>
 
         <!-- Botón Vehículos -->
-        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navVehiculos" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-padding: 0;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navVehiculos" prefHeight="250.0" prefWidth="250.0" styleClass="nav-button" GridPane.columnIndex="1" GridPane.rowIndex="0">
             <graphic>
                 <ImageView fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 15, 0, 0, 5);">
                     <image>
@@ -58,7 +58,7 @@
         </Button>
 
         <!-- Botón Facturación -->
-        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navFacturacion" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-padding: 0;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navFacturacion" prefHeight="250.0" prefWidth="250.0" styleClass="nav-button" GridPane.columnIndex="0" GridPane.rowIndex="1">
             <graphic>
                 <ImageView fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 15, 0, 0, 5);">
                     <image>
@@ -69,7 +69,7 @@
         </Button>
 
         <!-- Botón Buscar Facturas -->
-        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navBuscarFacturas" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-padding: 0;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#navBuscarFacturas" prefHeight="250.0" prefWidth="250.0" styleClass="nav-button" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <graphic>
                 <ImageView fitHeight="240.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 15, 0, 0, 5);">
                     <image>

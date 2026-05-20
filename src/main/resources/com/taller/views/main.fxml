@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -11,11 +13,11 @@
 
 <BorderPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.MainController">
     <top>
-        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #0d0d1a;" BorderPane.alignment="CENTER">
+        <HBox alignment="CENTER_LEFT" styleClass="top-bar" BorderPane.alignment="CENTER">
             <padding>
                 <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
             </padding>
-            <Button mnemonicParsing="false" onAction="#navInicio" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5;" text="🏠 Inicio">
+            <Button mnemonicParsing="false" onAction="#navInicio" styleClass="nav-button" text="🏠 Inicio">
                 <font>
                     <Font name="System Bold" size="14.0" />
                 </font>
@@ -24,15 +26,16 @@
                 </HBox.margin>
             </Button>
             
-            <Label fx:id="lblTallerNombre" text="Mi Taller Mecánico" textFill="WHITE">
+            <Label fx:id="lblTallerNombre" text="Mi Taller Mecánico" styleClass="title-label">
                 <font>
                     <Font name="System Bold" size="24.0" />
                 </font>
             </Label>
             
+            <ToggleButton fx:id="themeToggle" onAction="#cambiarTema" styleClass="toggle-button" text="🌙" />
             <Region HBox.hgrow="ALWAYS" />
             
-            <Button mnemonicParsing="false" onAction="#navConfiguracion" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5;" text="⚙ Configuración">
+            <Button mnemonicParsing="false" onAction="#navConfiguracion" styleClass="nav-button" text="⚙ Configuración">
                 <font>
                     <Font name="System Bold" size="14.0" />
                 </font>
@@ -40,6 +43,6 @@
         </HBox>
     </top>
     <center>
-        <StackPane fx:id="contentArea" style="-fx-background-color: #1a1a1a;" BorderPane.alignment="CENTER" />
+        <StackPane fx:id="contentArea" styleClass="content-area" BorderPane.alignment="CENTER" />
     </center>
 </BorderPane>

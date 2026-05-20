@@ -10,12 +10,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" spacing="15.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.FacturacionController">
+<VBox alignment="TOP_CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.FacturacionController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label text="Nueva Factura" textFill="WHITE">
+    <Label text="Nueva Factura" styleClass="title-label">
         <font>
             <Font name="System Bold" size="24.0" />
         </font>
@@ -23,17 +23,17 @@
 
     <HBox spacing="20.0" alignment="CENTER">
         <VBox spacing="5.0">
-            <Label text="Placa del Vehículo:" textFill="#ecf0f1" />
+            <Label text="Placa del Vehículo:" />
             <TextField fx:id="txtPlaca" promptText="XYZ-123" />
         </VBox>
         <VBox spacing="5.0">
-            <Label text="Mano de Obra ($):" textFill="#ecf0f1" />
+            <Label text="Mano de Obra ($):" />
             <TextField fx:id="txtManoObra" promptText="0.00" text="0" />
         </VBox>
     </HBox>
 
-    <VBox spacing="10.0" style="-fx-border-color: #3a3a5c; -fx-border-radius: 5; -fx-padding: 10;">
-        <Label text="Agregar Repuesto" textFill="#ecf0f1">
+    <VBox spacing="10.0">
+        <Label text="Agregar Repuesto">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -41,8 +41,8 @@
         <HBox spacing="10.0" alignment="CENTER_LEFT">
             <TextField fx:id="txtDescRepuesto" promptText="Descripción" prefWidth="250.0"/>
             <TextField fx:id="txtPrecioRepuesto" promptText="Precio" prefWidth="100.0"/>
-            <Button text="Añadir" onAction="#agregarRepuestoAction" style="-fx-background-color: #27ae60; -fx-text-fill: white;" />
-            <Button text="Quitar Seleccionado" onAction="#eliminarRepuestoAction" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
+            <Button text="Añadir" onAction="#agregarRepuestoAction" styleClass="primary-button" />
+            <Button text="Quitar Seleccionado" onAction="#eliminarRepuestoAction" styleClass="danger-button" />
         </HBox>
     </VBox>
 
@@ -54,11 +54,11 @@
     </TableView>
 
     <HBox alignment="CENTER_RIGHT" spacing="20.0">
-        <Label fx:id="lblTotal" text="Total: $0.00" textFill="#c0392b">
+        <Label fx:id="lblTotal" text="Total: $0.00" styleClass="total-label">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
         </Label>
-        <Button text="Guardar Factura" onAction="#generarFacturaAction" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
+        <Button text="Guardar Factura" onAction="#generarFacturaAction" styleClass="warning-button" />
     </HBox>
 </VBox>

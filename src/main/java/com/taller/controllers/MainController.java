@@ -4,8 +4,11 @@ import com.taller.models.Configuracion;
 import com.taller.repository.ConfigRepository;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ToggleButton;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.StackPane;
@@ -42,6 +45,7 @@ import javafx.scene.input.KeyCombination;
 public class MainController implements Initializable {
 
     @FXML private Label lblTallerNombre;
+    @FXML private ToggleButton themeToggle;
     @FXML private StackPane contentArea;
     
     private ConfigRepository configRepo = new ConfigRepository();
@@ -50,10 +54,15 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cargarConfiguracion();
-        navInicio(); // Load the new dashboard initially
+        aplicarTemaDesdeConfig();
+        navInicio();
 
         contentArea.sceneProperty().addListener((obs, oldScene, newScene) -> {
             if (newScene != null) {
+                String currentTheme = (String) newScene.getUserData();
+                if (currentTheme != null) {
+                    themeToggle.setSelected("dark".equals(currentTheme));
+                }
                 newScene.getAccelerators().put(new KeyCodeCombination(KeyCode.DIGIT1, KeyCombination.CONTROL_DOWN), () -> navClientes());
                 newScene.getAccelerators().put(new KeyCodeCombination(KeyCode.DIGIT2, KeyCombination.CONTROL_DOWN), () -> navVehiculos());
                 newScene.getAccelerators().put(new KeyCodeCombination(KeyCode.DIGIT3, KeyCombination.CONTROL_DOWN), () -> navNuevaFactura());
@@ -92,15 +101,7 @@ public class MainController implements Initializable {
 
     @FXML
     public void navConfiguracion() {
-        TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("Acceso Restringido");
-        dialog.setHeaderText("Configuración del Taller");
-        dialog.setContentText("Ingrese la contraseña de administrador:");
-
-        Optional<String> result = dialog.showAndWait();
-        if (result.isPresent() && result.get().equals(adminPassword)) {
-            mostrarVista("/com/taller/views/config.fxml");
-        }
+        mostrarVista("/com/taller/views/config.fxml");
     }
 
     private void mostrarVista(String fxmlPath) {
@@ -118,6 +119,43 @@ public class MainController implements Initializable {
             contentArea.getChildren().clear();
             contentArea.getChildren().add(view);
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void aplicarTemaDesdeConfig() {
+        try {
+            Configuracion cfg = configRepo.obtenerConfiguracion();
+            String tema = (cfg != null && cfg.tema() != null) ? cfg.tema() : "dark";
+            Scene scene = contentArea.getScene();
+            if (scene != null) {
+                scene.getStylesheets().clear();
+                String css = "/com/taller/styles/" + ("dark".equals(tema) ? "dark-theme.css" : "light-theme.css");
+                scene.getStylesheets().add(getClass().getResource(css).toExternalForm());
+                scene.setUserData(tema);
+                if (themeToggle != null) {
+                    themeToggle.setSelected("dark".equals(tema));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void cambiarTema(ActionEvent event) {
+        boolean isDark = themeToggle.isSelected();
+        String nuevoTema = isDark ? "dark" : "light";
+        Scene scene = contentArea.getScene();
+        if (scene != null) {
+            scene.getStylesheets().clear();
+            String css = "/com/taller/styles/" + (isDark ? "dark-theme.css" : "light-theme.css");
+            scene.getStylesheets().add(getClass().getResource(css).toExternalForm());
+            scene.setUserData(nuevoTema);
+        }
+        try {
+            configRepo.actualizarTema(nuevoTema);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

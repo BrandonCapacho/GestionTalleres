@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.ConfigController">
+<VBox alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.ConfigController">
     <padding>
         <Insets bottom="30.0" left="50.0" right="50.0" top="30.0" />
     </padding>
 
-    <Label text="Configuración del Taller" textFill="WHITE">
+    <Label text="Configuración del Taller" styleClass="title-label">
         <font>
             <Font name="System Bold" size="24.0" />
         </font>
@@ -20,17 +20,17 @@
     </Label>
 
     <GridPane alignment="CENTER" hgap="15.0" vgap="15.0">
-        <Label text="Nombre del Taller:" textFill="#ecf0f1" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <Label text="Nombre del Taller:" GridPane.columnIndex="0" GridPane.rowIndex="0">
             <font><Font size="14.0" /></font>
         </Label>
         <TextField fx:id="txtNombreTaller" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-        <Label text="Ruta Logo (URL/Path):" textFill="#ecf0f1" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <Label text="Ruta Logo (URL/Path):" GridPane.columnIndex="0" GridPane.rowIndex="1">
             <font><Font size="14.0" /></font>
         </Label>
         <TextField fx:id="txtLogoPath" prefWidth="300.0" promptText="C:\logos\mitaller.png" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-        <Label text="Clave de Acceso:" textFill="#ecf0f1" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <Label text="Clave de Acceso:" GridPane.columnIndex="0" GridPane.rowIndex="2">
             <font><Font size="14.0" /></font>
         </Label>
         <PasswordField fx:id="txtNuevaClave" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -45,7 +45,7 @@
       </rowConstraints>
     </GridPane>
 
-    <Button onAction="#guardarConfiguracionAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #27ae60; -fx-text-fill: white;" text="Guardar Cambios">
+    <Button onAction="#guardarConfiguracionAction" prefHeight="40.0" prefWidth="200.0" styleClass="primary-button" text="Guardar Cambios">
         <font>
             <Font name="System Bold" size="14.0" />
         </font>

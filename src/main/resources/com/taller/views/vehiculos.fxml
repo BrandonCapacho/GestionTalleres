@@ -11,12 +11,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.VehiculoController">
+<VBox alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.VehiculoController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label text="Gestión de Vehículos" textFill="WHITE">
+    <Label text="Gestión de Vehículos" styleClass="title-label">
         <font>
             <Font name="System Bold" size="24.0" />
         </font>
@@ -38,7 +38,7 @@
         <TextField fx:id="txtNumPuertas" promptText="Num Puertas" prefWidth="100.0" visible="false" managed="false" />
         <TextField fx:id="txtCapacidadCarga" promptText="Carga (Ton)" prefWidth="100.0" visible="false" managed="false" />
 
-        <Button fx:id="btnGuardar" text="Guardar" onAction="#guardarVehiculoAction" style="-fx-background-color: #2980b9; -fx-text-fill: white;" disable="true">
+        <Button fx:id="btnGuardar" text="Guardar" onAction="#guardarVehiculoAction" styleClass="primary-button" disable="true">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>

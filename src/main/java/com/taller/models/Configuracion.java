@@ -15,5 +15,6 @@ package com.taller.models;
  * @author BRANDON CAPACHO
  * @version 1.0
  */
-public record Configuracion(int id, String nombreTaller, String logoPath, String claveAcceso) {
+public record Configuracion(int id, String nombreTaller, String logoPath, String claveAcceso, String tema) {
+
 }

@@ -10,12 +10,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" spacing="15.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.BuscadorFacturasController">
+<VBox alignment="TOP_CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taller.controllers.BuscadorFacturasController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label text="Historial y Búsqueda de Facturas" textFill="WHITE">
+    <Label text="Historial y Búsqueda de Facturas" styleClass="title-label">
         <font>
             <Font name="System Bold" size="24.0" />
         </font>
@@ -23,8 +23,8 @@
 
     <HBox spacing="10.0" alignment="CENTER">
         <TextField fx:id="txtBusqueda" promptText="Placa o Cédula..." prefWidth="250.0" />
-        <Button text="Buscar por Placa" onAction="#buscarPorPlacaAction" style="-fx-background-color: #34495e; -fx-text-fill: white;" />
-        <Button text="Buscar por Cédula" onAction="#buscarPorCedulaAction" style="-fx-background-color: #8e44ad; -fx-text-fill: white;" />
+        <Button text="Buscar por Placa" onAction="#buscarPorPlacaAction" styleClass="secondary-button" />
+        <Button text="Buscar por Cédula" onAction="#buscarPorCedulaAction" styleClass="secondary-button" />
     </HBox>
 
     <TableView fx:id="tablaFacturas" prefHeight="300.0" VBox.vgrow="ALWAYS">
@@ -37,7 +37,7 @@
     </TableView>
 
     <Button text="Generar PDF (iText) de Seleccionada" onAction="#exportarPdfAction" 
-            style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;">
+            styleClass="danger-button">
         <VBox.margin>
             <Insets top="10.0" />
         </VBox.margin>

@@ -1,0 +1,45 @@
+/* light-theme.css - Premium light theme for JavaFX */
+.root {
+    -fx-base: #f5f5f5;
+    -fx-background: #f5f5f5;
+    -fx-control-inner-background: #ffffff;
+    -fx-accent: #6200EE; /* vivid accent */
+    -fx-focus-color: #6200EE;
+    -fx-faint-focus-color: transparent;
+    -fx-text-fill: #212121;
+    -fx-font-family: "Inter", "Arial", sans-serif;
+    -fx-font-size: 14px;
+}
+.button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #212121;
+    -fx-border-color: #6200EE;
+    -fx-border-width: 1;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 8 12 8 12;
+    -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 1);
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease-in-out;
+}
+.button:hover {
+    -fx-background-color: rgba(0,0,0,0.05);
+}
+.toggle-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #212121;
+    -fx-graphic: url("/com/taller/views/icons/sun.svg");
+}
+.toggle-button:selected {
+    -fx-graphic: url("/com/taller/views/icons/moon.svg");
+}
+.table-view {
+    -fx-background-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-control-inner-background: #ffffff;
+    -fx-text-fill: #212121;
+}
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
